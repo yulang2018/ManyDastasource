@@ -1936,3 +1936,1545 @@ INFO:AtomikosDataSoureBean 'test02DataSource': init...
 INFO:AtomikosDataSoureBean 'test02DataSource': initializing with [ xaDataSourceClassName=null, uniqueResourceName=test02DataSource, maxPoolSize=25, minPoolSize=3, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=null, xaProperties=[], loginTimeout=30, maxLifetime=20000]
 2018-12-31 12:33:35 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
 INFO:test02DataSource: refreshed XAResource
+2018-12-31 13:27:50 下午 [Thread: Atomikos:1][ Class:com.atomikos.recovery.xa.XaResourceRecoveryManager >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:40) ]
+WARN:Error while retrieving xids from resource - will retry later...
+com.mysql.cj.jdbc.MysqlXAException: Undetermined error occurred in the underlying Connection - check your data for consistency
+	at com.mysql.cj.jdbc.MysqlXAConnection.mapXAExceptionFromSQLException(MysqlXAConnection.java:347)
+	at com.mysql.cj.jdbc.MysqlXAConnection.recover(MysqlXAConnection.java:189)
+	at com.mysql.cj.jdbc.SuspendableXAConnection.recover(SuspendableXAConnection.java:143)
+	at com.atomikos.datasource.xa.RecoveryScan.recoverXids(RecoveryScan.java:32)
+	at com.atomikos.recovery.xa.XaResourceRecoveryManager.retrievePreparedXidsFromXaResource(XaResourceRecoveryManager.java:158)
+	at com.atomikos.recovery.xa.XaResourceRecoveryManager.recover(XaResourceRecoveryManager.java:67)
+	at com.atomikos.datasource.xa.XATransactionalResource.recover(XATransactionalResource.java:449)
+	at com.atomikos.icatch.imp.TransactionServiceImp.performRecovery(TransactionServiceImp.java:490)
+	at com.atomikos.icatch.imp.TransactionServiceImp.access$000(TransactionServiceImp.java:56)
+	at com.atomikos.icatch.imp.TransactionServiceImp$1.alarm(TransactionServiceImp.java:471)
+	at com.atomikos.timing.PooledAlarmTimer.notifyListeners(PooledAlarmTimer.java:95)
+	at com.atomikos.timing.PooledAlarmTimer.run(PooledAlarmTimer.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 2,334,387 milliseconds ago.  The last packet sent successfully to the server was 2,334,482 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1218)
+	at com.mysql.cj.jdbc.MysqlXAConnection.recover(MysqlXAConnection.java:168)
+	... 13 more
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 2,334,387 milliseconds ago.  The last packet sent successfully to the server was 2,334,482 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:555)
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:725)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:664)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:979)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:914)
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:1150)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1186)
+	... 14 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465)
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:975)
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:933)
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:549)
+	... 20 more
+2018-12-31 13:27:51 下午 [Thread: Atomikos:1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:test02DataSource: refreshed XAResource
+2018-12-31 13:59:21 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 13:59:21 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 13340 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 13:59:21 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 13:59:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 13:59:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 13:59:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 13:59:23 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 13:59:23 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2004 ms
+2018-12-31 13:59:24 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 13:59:24 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 13:59:25 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 13:59:25 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 4.033 seconds (JVM running for 5.162)
+2018-12-31 14:00:07 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 14:00:07 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 11 ms
+2018-12-31 14:00:07 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': init...
+2018-12-31 14:00:07 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AtomikosDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': initializing with [ xaDataSourceClassName=null, uniqueResourceName=test01DataSource, maxPoolSize=25, minPoolSize=3, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=null, xaProperties=[], loginTimeout=30, maxLifetime=20000]
+2018-12-31 14:00:08 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:test01DataSource: refreshed XAResource
+2018-12-31 14:01:50 下午 [Thread: http-nio-8080-exec-4][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': init...
+2018-12-31 14:02:04 下午 [Thread: http-nio-8080-exec-7][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': init...
+2018-12-31 14:02:35 下午 [Thread: http-nio-8080-exec-8][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': init...
+2018-12-31 17:10:15 下午 [Thread: Thread-11][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 17:10:15 下午 [Thread: Thread-11][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 17:10:15 下午 [Thread: Thread-11][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 17:10:15 下午 [Thread: Thread-11][ Class:com.atomikos.datasource.pool.ConnectionPool >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:atomikos connection pool 'test01DataSource': destroying pool...
+2018-12-31 17:10:15 下午 [Thread: Thread-11][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 17:10:28 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 17:10:29 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 5052 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 17:10:29 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 17:10:30 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'jedisPoolConfig' defined in class path resource [com/yulang/utils/RedisConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfig; factoryMethodName=jedisPoolConfig; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yulang/utils/RedisConfig.class]] for bean 'jedisPoolConfig': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisCluster; factoryMethodName=jedisPoolConfig; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yulang/utils/RedisCluster.class]] bound.
+2018-12-31 17:10:30 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'jedisPoolConfig', defined in class path resource [com/yulang/utils/RedisConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/yulang/utils/RedisCluster.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2018-12-31 17:14:03 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 17:14:04 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 13500 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 17:14:04 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 17:14:05 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'jedisPoolConfig' defined in class path resource [com/yulang/utils/RedisConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfig; factoryMethodName=jedisPoolConfig; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yulang/utils/RedisConfig.class]] for bean 'jedisPoolConfig': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisCluster; factoryMethodName=jedisPoolConfig; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yulang/utils/RedisCluster.class]] bound.
+2018-12-31 17:14:05 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'jedisPoolConfig', defined in class path resource [com/yulang/utils/RedisConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/yulang/utils/RedisCluster.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2018-12-31 17:32:24 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 17:32:24 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 12560 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 17:32:24 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 17:32:25 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 17:32:25 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 17:32:25 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 17:32:25 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.stringRedisTemplate
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:64)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:181)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:141)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1023)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:195)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:159)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanType(BeanTypeRegistry.java:152)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:140)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:135)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.getNamesForType(BeanTypeRegistry.java:97)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:298)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 17 more
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 39 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 43 more
+2018-12-31 17:32:25 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:839) ]
+WARN:Unable to close ApplicationContext
+java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:507)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:590)
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1204)
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:905)
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:891)
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:877)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:826)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 25 more
+2018-12-31 18:21:04 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:21:05 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 2200 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:21:05 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:21:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:21:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:21:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:21:07 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.stringRedisTemplate
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:64)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:181)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:141)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1688)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1023)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:195)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:159)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanType(BeanTypeRegistry.java:152)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:140)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:135)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.getNamesForType(BeanTypeRegistry.java:97)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:298)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 17 more
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 39 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 43 more
+2018-12-31 18:21:07 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:839) ]
+WARN:Unable to close ApplicationContext
+java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1688)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:507)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:590)
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1204)
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:905)
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:891)
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:877)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:826)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 25 more
+2018-12-31 18:21:58 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:21:58 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 13956 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:21:58 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:22:00 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:22:00 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:22:00 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:22:00 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.stringRedisTemplate
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:64)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:181)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:141)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1023)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:195)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:159)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanType(BeanTypeRegistry.java:152)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:140)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:135)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.getNamesForType(BeanTypeRegistry.java:97)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:298)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 17 more
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 39 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 43 more
+2018-12-31 18:22:00 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:839) ]
+WARN:Unable to close ApplicationContext
+java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:507)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:590)
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1204)
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:905)
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:891)
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:877)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:826)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 25 more
+2018-12-31 18:23:03 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:23:03 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 11756 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:23:03 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:23:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:23:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:23:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:23:06 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.stringRedisTemplate
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:64)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:181)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:141)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1023)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:195)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanTypeForNonAliasDefinition(BeanTypeRegistry.java:159)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.addBeanType(BeanTypeRegistry.java:152)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:140)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.updateTypesIfNecessary(BeanTypeRegistry.java:135)
+	at org.springframework.boot.autoconfigure.condition.BeanTypeRegistry.getNamesForType(BeanTypeRegistry.java:97)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:298)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:289)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:278)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 17 more
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 39 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 43 more
+2018-12-31 18:23:06 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:839) ]
+WARN:Unable to close ApplicationContext
+java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.autoconfigure.data.redis.JedisConnectionConfiguration] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:686)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:583)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:568)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:626)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:721)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:662)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:630)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1518)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:507)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:590)
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1204)
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:905)
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:891)
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:877)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:826)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:16)
+Caused by: java.lang.NoClassDefFoundError: org/springframework/data/redis/connection/jedis/JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:668)
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.data.redis.connection.jedis.JedisClientConfiguration$JedisClientConfigurationBuilder
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 25 more
+2018-12-31 18:23:59 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:23:59 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 10492 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:23:59 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:24:01 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:24:01 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:24:01 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:24:02 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:24:02 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2679 ms
+2018-12-31 18:24:03 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:24:03 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:24:04 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:24:04 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 4.747 seconds (JVM running for 5.916)
+2018-12-31 18:24:21 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:24:21 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 17 ms
+2018-12-31 18:24:22 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': init...
+2018-12-31 18:24:22 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AtomikosDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': initializing with [ xaDataSourceClassName=null, uniqueResourceName=test02DataSource, maxPoolSize=25, minPoolSize=3, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=null, xaProperties=[], loginTimeout=30, maxLifetime=20000]
+2018-12-31 18:24:23 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:test02DataSource: refreshed XAResource
+2018-12-31 18:24:49 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:24:50 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 1816 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:24:50 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:24:51 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:24:51 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:24:51 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:24:52 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:24:52 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2577 ms
+2018-12-31 18:24:53 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:24:54 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:24:54 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 5.245 seconds (JVM running for 6.676)
+2018-12-31 18:25:02 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:25:02 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 10 ms
+2018-12-31 18:25:17 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': init...
+2018-12-31 18:25:17 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AtomikosDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': initializing with [ xaDataSourceClassName=null, uniqueResourceName=test02DataSource, maxPoolSize=25, minPoolSize=3, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=null, xaProperties=[], loginTimeout=30, maxLifetime=20000]
+2018-12-31 18:25:19 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:test02DataSource: refreshed XAResource
+2018-12-31 18:28:02 下午 [Thread: http-nio-8080-exec-10][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': init...
+2018-12-31 18:28:35 下午 [Thread: Thread-13][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:28:35 下午 [Thread: Thread-13][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:28:35 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:28:35 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:28:35 下午 [Thread: Thread-13][ Class:com.atomikos.datasource.pool.ConnectionPool >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:atomikos connection pool 'test02DataSource': destroying pool...
+2018-12-31 18:28:46 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:28:46 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 11380 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:28:46 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:28:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:28:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:28:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:28:50 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:28:50 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3523 ms
+2018-12-31 18:28:51 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:28:51 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:28:52 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:28:52 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 6.405 seconds (JVM running for 7.984)
+2018-12-31 18:28:58 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:28:58 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 8 ms
+2018-12-31 18:31:18 下午 [Thread: Thread-16][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:31:19 下午 [Thread: Thread-16][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:31:19 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:31:19 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:31:27 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:31:28 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 10020 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:31:28 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:31:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:31:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:31:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:31:31 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:31:31 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3266 ms
+2018-12-31 18:31:32 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:31:32 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:31:33 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:31:33 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 6.29 seconds (JVM running for 7.915)
+2018-12-31 18:31:38 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:31:38 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 12 ms
+2018-12-31 18:32:42 下午 [Thread: Thread-16][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:32:42 下午 [Thread: Thread-16][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:32:42 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:32:42 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:32:52 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:32:53 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 5788 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:32:53 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:32:54 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:32:54 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:32:54 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:32:55 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:32:55 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2381 ms
+2018-12-31 18:32:56 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:32:56 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:32:57 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:32:57 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 4.986 seconds (JVM running for 6.742)
+2018-12-31 18:33:02 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:33:02 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 13 ms
+2018-12-31 18:34:08 下午 [Thread: Thread-14][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:34:08 下午 [Thread: Thread-14][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:34:08 下午 [Thread: Thread-14][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:34:08 下午 [Thread: Thread-14][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:34:18 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:34:18 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 10568 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:34:18 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:34:19 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:34:19 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:34:19 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:34:21 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:34:21 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3013 ms
+2018-12-31 18:34:22 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:34:23 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:34:23 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 5.923 seconds (JVM running for 7.566)
+2018-12-31 18:34:34 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:34:34 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 12 ms
+2018-12-31 18:35:01 下午 [Thread: Thread-16][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:35:01 下午 [Thread: Thread-16][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:35:01 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:35:01 下午 [Thread: Thread-16][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:35:10 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:35:10 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 8036 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:35:10 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:35:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:35:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:35:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:35:13 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:35:13 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2861 ms
+2018-12-31 18:35:14 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:35:14 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:35:15 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:35:15 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 5.773 seconds (JVM running for 7.313)
+2018-12-31 18:35:31 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:35:31 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 10 ms
+2018-12-31 18:36:38 下午 [Thread: Thread-15][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 18:36:38 下午 [Thread: Thread-15][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:36:38 下午 [Thread: Thread-15][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 18:36:38 下午 [Thread: Thread-15][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 18:36:46 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 18:36:47 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 8800 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 18:36:47 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 18:36:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:36:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 18:36:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 18:36:50 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 18:36:50 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3325 ms
+2018-12-31 18:36:51 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 18:36:52 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 18:36:52 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 6.08 seconds (JVM running for 7.489)
+2018-12-31 18:37:20 下午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 18:37:20 下午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 9 ms
+2018-12-31 19:02:53 下午 [Thread: Thread-13][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 19:02:53 下午 [Thread: Thread-13][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 19:02:53 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 19:02:53 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 19:03:05 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 19:03:06 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 12352 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 19:03:06 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 19:03:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 19:03:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 19:03:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 19:03:08 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 19:03:08 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2379 ms
+2018-12-31 19:03:09 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 19:03:09 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 19:03:10 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 19:03:10 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 4.575 seconds (JVM running for 5.755)
+2018-12-31 19:03:19 下午 [Thread: Thread-13][ Class:com.atomikos.icatch.imp.TransactionServiceImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2018-12-31 19:03:19 下午 [Thread: Thread-13][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:208) ]
+INFO:Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-31 19:03:19 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': close...
+2018-12-31 19:03:19 下午 [Thread: Thread-13][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test02DataSource': close...
+2018-12-31 19:39:57 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.13.Final
+2018-12-31 19:39:57 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting App on LAPTOP-PUIEM0L9 with PID 15080 (C:\Users\13044\IdeaProjects\ManyDastasource\target\classes started by 13044 in C:\Users\13044\IdeaProjects\ManyDastasource)
+2018-12-31 19:39:57 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2018-12-31 19:39:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-31 19:39:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-31 19:39:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-31 19:40:00 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2018-12-31 19:40:00 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2494 ms
+2018-12-31 19:40:01 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Loaded jar:file:/C:/Users/13044/.m2/repository/com/atomikos/transactions/4.0.6/transactions-4.0.6.jar!/transactions-defaults.properties
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logWarning(Slf4jLogger.java:24) ]
+WARN:Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.allow_subtransactions = true
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.recovery_delay = 10000
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.automatic_resource_registration = true
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_max_retries = 5
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.client_demarcation = false
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.threaded_2pc = false
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.serial_jta_transactions = true
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_dir = C:\Users\13044\IdeaProjects\ManyDastasource\transaction-logs
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.rmi_export_class = none
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_actives = 50
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.checkpoint_interval = 500
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.enable_logging = true
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.log_base_name = tmlog
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.max_timeout = 300000
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.trust_client_tm = false
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.tm_unique_name = 192.168.213.1.tm
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: java.naming.provider.url = rmi://localhost:1099
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:USING: com.atomikos.icatch.default_jta_timeout = 10000
+2018-12-31 19:40:01 下午 [Thread: main][ Class:com.atomikos.icatch.provider.imp.AssemblerImp >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:Using default (local) logging and recovery...
+2018-12-31 19:40:02 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-31 19:40:02 下午 [Thread: main][ Class:com.yulang.App >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started App in 5.351 seconds (JVM running for 6.615)
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 14 ms
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:27) ]
+INFO:WebLogAspect.doBefore()
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:30) ]
+INFO:URL : http://127.0.0.1:8080/select
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:31) ]
+INFO:HTTP_METHOD : GET
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:32) ]
+INFO:IP : 127.0.0.1
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:33) ]
+INFO:CLASS_METHOD : com.yulang.controller.UserController.select
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:34) ]
+INFO:Params : [1, 2]
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AbstractDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': init...
+2018-12-31 19:40:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.jdbc.AtomikosDataSourceBean >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:AtomikosDataSoureBean 'test01DataSource': initializing with [ xaDataSourceClassName=null, uniqueResourceName=test01DataSource, maxPoolSize=25, minPoolSize=3, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=null, xaProperties=[], loginTimeout=30, maxLifetime=20000]
+2018-12-31 19:40:13 下午 [Thread: http-nio-8080-exec-1][ Class:com.atomikos.datasource.xa.XATransactionalResource >> Method: com.atomikos.logging.Slf4jLogger.logInfo(Slf4jLogger.java:28) ]
+INFO:test01DataSource: refreshed XAResource
+2018-12-31 19:40:15 下午 [Thread: http-nio-8080-exec-1][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doAfterReturning(WebLogAop.java:45) ]
+INFO:WebLogAspect.doAfterReturning()
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:27) ]
+INFO:WebLogAspect.doBefore()
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:30) ]
+INFO:URL : http://127.0.0.1:8080/select
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:31) ]
+INFO:HTTP_METHOD : GET
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:32) ]
+INFO:IP : 127.0.0.1
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:33) ]
+INFO:CLASS_METHOD : com.yulang.controller.UserController.select
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doBefore(WebLogAop.java:34) ]
+INFO:Params : [1, 2]
+2018-12-31 19:40:36 下午 [Thread: http-nio-8080-exec-3][ Class:com.yulang.aop.WebLogAop >> Method: com.yulang.aop.WebLogAop.doAfterReturning(WebLogAop.java:45) ]
+INFO:WebLogAspect.doAfterReturning()
