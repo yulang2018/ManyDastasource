@@ -1,5 +1,6 @@
 package com.yulang.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.yulang.test01.service.UserService01;
 import com.yulang.test02.service.UserService02;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,4 +18,10 @@ public class UserController {
         int i1= userService01.insert(pkid,name,age);
         return i1;
     }
+
+    @RequestMapping("/select")
+    public PageInfo select(int page,int pageSize){
+        return userService01.select(page,pageSize);
+    }
+
 }
