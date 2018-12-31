@@ -1,0 +1,351 @@
+2018-12-30 22:55:51 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+2018-12-30 22:55:52 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:287)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:199)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 13 more
+2018-12-30 22:57:50 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+2018-12-30 22:57:51 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:287)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:199)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 13 more
+2018-12-30 22:59:24 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+2018-12-30 22:59:24 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
+ERROR:Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.yulang.App]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yulang.App.main(App.java:12)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userService' for bean class [com.yulang.test02.service.UserService] conflicts with existing, non-compatible bean definition of same name and class [com.yulang.test01.service.UserService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:287)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:199)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 13 more
+2018-12-30 23:04:06 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.service]' package. Please check your configuration.
+2018-12-30 23:04:06 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test02.service]' package. Please check your configuration.
+2018-12-30 23:04:06 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.mapper]' package. Please check your configuration.
+2018-12-30 23:04:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang]' package. Please check your configuration.
+2018-12-30 23:04:09 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService01'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService01': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yulang.test01.mapper.UserMapper01' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-12-30 23:04:09 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.yulang.test01.service.UserService01 required a bean of type 'com.yulang.test01.mapper.UserMapper01' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yulang.test01.mapper.UserMapper01' in your configuration.
+
+2018-12-30 23:05:25 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.service]' package. Please check your configuration.
+2018-12-30 23:05:25 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test02.service]' package. Please check your configuration.
+2018-12-30 23:05:26 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService01'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService01': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper01' defined in file [C:\Users\13044\IdeaProjects\ManyDastasource\target\classes\com\yulang\test01\mapper\UserMapper01.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:05:26 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+file [C:\Users\13044\IdeaProjects\ManyDastasource\target\classes\com\yulang\test01\mapper\UserMapper01.class] required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:06:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:06:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:06:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:06:26 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:06:26 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method sqlSessionTemplate in org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:07:39 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:07:39 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:07:39 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:07:40 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:07:40 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method sqlSessionTemplate in org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:08:56 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:08:56 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:08:56 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:08:58 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:08:58 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method sqlSessionTemplate in org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:10:26 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:10:26 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:10:26 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:10:28 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:10:28 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method sqlSessionTemplate in org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:12:10 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:12:10 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:12:10 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:12:12 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554) ]
+WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.apache.ibatis.session.SqlSessionFactory' available: expected single matching bean but found 2: test01SqlSessionFactory,test02SqlSessionFactory
+2018-12-30 23:12:12 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method sqlSessionTemplate in org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration required a single bean, but 2 were found:
+	- test01SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig01.class]
+	- test02SqlSessionFactory: defined by method 'masterSqlSessionFactory' in class path resource [com/yulang/datasource/DataSourceConfig02.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2018-12-30 23:15:09 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:15:09 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:15:09 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:16:04 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.HikariConfig >> Method: com.zaxxer.hikari.HikariConfig.validate(HikariConfig.java:950) ]
+ERROR:HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-30 23:17:53 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:17:53 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:17:53 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:18:48 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.HikariConfig >> Method: com.zaxxer.hikari.HikariConfig.validate(HikariConfig.java:950) ]
+ERROR:HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-30 23:20:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:20:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:20:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:21:17 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.HikariConfig >> Method: com.zaxxer.hikari.HikariConfig.validate(HikariConfig.java:950) ]
+ERROR:HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-30 23:23:23 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:23:23 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:23:23 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:23:51 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:24:37 下午 [Thread: http-nio-8080-exec-4][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:26:52 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:26:52 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:26:52 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:27:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:27:14 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:31:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:31:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:31:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:31:21 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:31:22 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:32:20 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:32:20 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:32:20 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:32:31 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:32:32 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:34:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:34:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:34:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:34:22 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:34:23 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:35:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper01' and 'com.yulang.test01.mapper.UserMapper01' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:35:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.checkCandidate(ClassPathMapperScanner.java:240) ]
+WARN:Skipping MapperFactoryBean with name 'userMapper02' and 'com.yulang.test02.mapper.UserMapper02' mapperInterface. Bean already defined with the same name!
+2018-12-30 23:35:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:167) ]
+WARN:No MyBatis mapper was found in '[com.yulang.test01.mapper, com.yulang.test02.mapper]' package. Please check your configuration.
+2018-12-30 23:35:37 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2018-12-30 23:35:38 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
